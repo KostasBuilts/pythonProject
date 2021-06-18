@@ -1,9 +1,23 @@
 import matplotlib.pyplot as plt
-import numpy as nmp
 import random as rnd
 
 class plnm:
     defused = 0
+
+class arrnum:
+    array = []
+    array2 = []
+    array3 = []
+    array4 = []
+    _power = ""
+    _power2 = ""
+    _power3 = ""
+    _power4 = ""
+    colur = ""
+    colur2 = ""
+    colur3 = ""
+    colur4 = ""
+
 
 red = '#ff0000'
 green = '#00ff00'
@@ -56,55 +70,81 @@ def rndcolor():
 
 def powercalc(power, colur):
 
-    x = 0
+    x = 1
     y = 0
     z = 0
     f = 0
 
     plnm.defused +=1
 
-    array = []
-    array2 = []
-    array3 = []
-    array4 = []
+
 
     if (plnm.defused == 1):
-        for x in range(100000):
-            array.insert(x, pow(x, power))
-            plt.subplot(1, 1, 1)
-            plt.plot(array, c=colur)
-            converted_power = str(power)
-            plt.title("to the power of " + converted_power)
-            plt.grid()
+        for x in range(100000): #How many points the graph will have
+            arrnum.array.insert(x, pow(x, power)) #filling the array with the mantatory values
+        plt.grid() #turning the grid on
+        plt.subplot(1, 1, 1) #cteating a subplot witch in this case is not a sub plot because the function in used only one time
+        arrnum.colur = colur
+        plt.plot(arrnum.array, c= arrnum.colur) #ploting the graph and giving it the color of choice
+        arrnum._power = str(power) #converting an integer to a string so that we can print it
+        plt.title("to the power of " + arrnum._power) #giving the plot a name to show
+
 
     if (plnm.defused == 2):
-        for x in range(100000):
-            array2.insert(y, pow(y, power))
-            plt.subplot(1, 2, 2)
-            plt.plot(array2, c=colur)
-            converted_power = str(power)
-            plt.title("to the power of " + converted_power)
-            plt.grid()
+        for y in range(100000):
+            arrnum.array2.insert(y, pow(y, power))
+        plt.subplot(1, 2, 1)
+        plt.plot(arrnum.array, c= arrnum.colur)
+        plt.grid()
+        plt.title("to the power of " + arrnum._power)
+        plt.subplot(1, 2, 2)
+        arrnum.colur2 = colur
+        plt.plot(arrnum.array2, c= arrnum.colur2)
+        arrnum._power2 = str(power)
+        plt.title("to the power of " + arrnum._power2)
+        plt.grid()
+
+    if (plnm.defused == 3):
+        for z in range(100000):
+            arrnum.array3.insert(z, pow(z, power))
+        plt.subplot(2, 2, 1)
+        plt.plot(arrnum.array, c=arrnum.colur)
+        plt.grid()
+        plt.title("to the power of " + arrnum._power)
+        plt.subplot(2, 2, 2)
+        plt.plot(arrnum.array2, c=arrnum.colur2)
+        plt.title("to the power of " + arrnum._power2)
+        plt.grid()
+        plt.subplot(2, 2, 3)
+        arrnum.colur3 = colur
+        plt.plot(arrnum.array3, c= arrnum.colur3)
+        arrnum._power3 = str(power)
+        plt.title("to the power of " + arrnum._power3)
+        plt.grid()
 
     if (plnm.defused == 4):
-        for x in range(100000):
-            array3.insert(z, pow(z, power))
-            plt.subplot(2, 2, 3)
-            plt.plot(array3, c=colur)
-            converted_power = str(power)
-            plt.title("to the power of " + converted_power)
-            plt.grid()
-
-    if (plnm.defused == 5):
-        for x in range(100000):
-            array4.insert(f, pow(f, power))
-            plt.subplot(2, 2, 4)
-            plt.plot(array4, c=colur)
-            converted_power = str(power)
-            plt.title("to the power of " + converted_power)
-            plt.grid()
+        for f in range(100000):
+            arrnum.array4.insert(f, pow(f, power))
+        plt.subplot(2, 2, 1)
+        plt.plot(arrnum.array, c=arrnum.colur)
+        plt.title("to the power of " + arrnum._power)
+        plt.subplot(2, 2, 2)
+        plt.plot(arrnum.array2, c=arrnum.colur2)
+        plt.title("to the power of " + arrnum._power2)
+        plt.subplot(2, 2, 3)
+        plt.plot(arrnum.array3, c=arrnum.colur3)
+        plt.title("to the power of " + arrnum._power3)
+        plt.subplot(2, 2, 4)
+        arrnum.colur4 = colur
+        plt.plot(arrnum.array4, c= arrnum.colur4)
+        arrnum._power4 = str(power)
+        plt.title("to the power of " + arrnum._power4)
+        plt.grid()
     print (plnm.defused)
 
 
+powercalc(2, rndcolor())
+powercalc(4, rndcolor())
 powercalc(0.3, rndcolor())
+powercalc(0.5, rndcolor())
 plt.show()
